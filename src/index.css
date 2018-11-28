@@ -14,21 +14,21 @@ code {
 }
 
 #header-wrap {
-  background: #eee;
-  box-sizing: border-box;
   height: 120px;
   margin: 0 auto;
   max-width: 1162px;
 }
 
   #header-wrap #header-content {
-    background: orange;
+    background: #eee;
     height: 120px;
     max-width: 100%;
     position: fixed;
+    width: 1162px;
   }
 
 #logo-wrap {
+  height: 100%;
   float: left;
   vertical-align: middle;
 }
@@ -62,16 +62,16 @@ code {
   #body-wrap .col {
     background: #eee;
     float: left;
-    margin: 0 auto;
+    margin: 0 30px;
     width: 347px;
   }
 
   #body-wrap .col.l {
     background: #eee;
-    margin: 0 60px 0 0;
+    margin: 0 30px 0 0;
   }
 
   #body-wrap .col.r {
     background: #eee;
-    margin: 0 0 0 60px;
+    margin: 0 0 0 30px;
   }
