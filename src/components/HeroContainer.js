@@ -19,18 +19,25 @@ export default class HeroContainer extends Component {
         content: 'Hero Content'
       }
     ],
-    currentHero: ""
+    currentHero: "",
+    fadeIn: true
   }
 
-
   componentDidMount = () => {
-    
   }
 
   renderHeroNav = () => {
     return this.state.images.map(hero => {
       return (<li className="hero-item" key={hero.url}>&#9679;</li>)
     })
+  }
+
+  renderHeroClass = () => {
+    return this.state.fadeIn ? "hero-fade-in" : "hero-fade-out"
+  }
+
+  heroChange = () => {
+    this.setState({ fadeIn: !this.state.fadeIn })
   }
 
   render() {
@@ -40,11 +47,15 @@ export default class HeroContainer extends Component {
 
     return (
       <React.Fragment>
-        <div id="hero-wrap" style={heroStyle}>
+        <div id="hero-wrap">
+          <div className={this.renderHeroClass()} style={heroStyle}>
+            <h1>Some text or something</h1>
+          </div>
         </div>
         <div id="hero-nav">
           {this.renderHeroNav()}
         </div>
+        <p><button onClick={this.heroChange}>Toggle</button></p>
       </React.Fragment>
     )
   }
