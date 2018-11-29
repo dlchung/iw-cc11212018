@@ -102,26 +102,16 @@ code {
 
 #body-wrap {
   background: #efefef;
-  box-sizing: border-box;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: auto auto auto;
   margin: 0 auto;
   max-width: 1162px;
+  padding: 0;
 }
 
   #body-wrap .col {
     background: #eee;
-    float: left;
-    margin: 0 30px;
-    width: 347px;
-  }
-
-  #body-wrap .col.l {
-    background: #eee;
-    margin: 0 30px 0 0;
-  }
-
-  #body-wrap .col.r {
-    background: #eee;
-    margin: 0 0 0 30px;
   }
 
 #footer-wrap {
