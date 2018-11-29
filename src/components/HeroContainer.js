@@ -21,11 +21,14 @@ export default class HeroContainer extends Component {
     ],
     currentHeroIndex: 0,
     fadeIn: true,
-    intervalId: ""
+    intervalId: "",
+    animationInterval: 5000, // milliseconds
+    animationDuration: 1000 // milliseconds
   }
 
   componentDidMount = () => {
-    const intervalId = setInterval(this.cycleHero, 5000)
+    const existDuration = (this.state.animationDuration * 2) + this.state.animationInterval
+    const intervalId = setInterval(this.rotateHero, existDuration)
     this.setState({ intervalId })
   }
 
@@ -44,42 +47,38 @@ export default class HeroContainer extends Component {
   }
 
   renderHero = () => {
+    const index = this.state.currentHeroIndex
     const heroStyle = {
-      background: `url(${this.state.images[this.state.currentHeroIndex].url}) center`,
+      background: `url(${this.state.images[index].url}) center`,
+      animationDuration: `${this.state.animationDuration}ms`
     }
 
     return (
       <div className={this.renderHeroClass()} style={heroStyle}>
-        <h1>{this.state.images[this.state.currentHeroIndex].title}</h1>
-        <h3>{this.state.images[this.state.currentHeroIndex].content}</h3>
+        <h1>{this.state.images[index].title}</h1>
+        <h3>{this.state.images[index].content}</h3>
       </div>
     )
   }
 
-  cycleHero = () => {
+  rotateHero = () => {
     const heroCount = this.state.images.length
 
-    this.setState({ fadeIn: false }, () => {
-      setTimeout(() => {
+    this.setState({ fadeIn: false }, () => { // fade out current image
+      setTimeout(() => { // wait for animation to finish
         if(this.state.currentHeroIndex < heroCount - 1) {
-          this.setState({ currentHeroIndex: this.state.currentHeroIndex + 1}, () => {
-            this.renderHero(this.state.currentHeroIndex)
-            this.setState({ fadeIn: true })
+          this.setState({ currentHeroIndex: this.state.currentHeroIndex + 1}, () => { // set new hero image
+            this.renderHero(this.state.currentHeroIndex) // render new hero image
+            this.setState({ fadeIn: true }) // fade in new image
           })
-        } else {
+        } else { // if last hero, go back to first hero
           this.setState({ currentHeroIndex: 0 }, () => {
             this.renderHero(this.state.currentHeroIndex)
             this.setState({ fadeIn: true })
           })
         }
-       }, 1000)
-    })
-
-    
-  }
-
-  heroChange = () => {
-    this.setState({ fadeIn: !this.state.fadeIn })
+       }, this.state.animationDuration) // timeout needs to be same as animation duration
+    }) 
   }
 
   render() {
@@ -91,7 +90,6 @@ export default class HeroContainer extends Component {
         <div id="hero-nav">
           {this.renderHeroNav()}
         </div>
-        <p><button onClick={this.heroChange}>Toggle</button></p>
       </React.Fragment>
     )
   }
