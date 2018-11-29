@@ -4,7 +4,7 @@ export default class Logo extends Component {
   render() {
     return (
       <React.Fragment>
-        <div id="logo-wrap"><img src="/img/logo.png" /></div>
+        <div id="logo-wrap"><img src="/img/logo.png" alt="Sparta Plaesent logo" /></div>
       </React.Fragment>
     )
   }
