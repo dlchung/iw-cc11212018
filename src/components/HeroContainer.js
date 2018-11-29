@@ -19,11 +19,18 @@ export default class HeroContainer extends Component {
         content: 'Hero Content'
       }
     ],
-    currentHero: "",
-    fadeIn: true
+    currentHeroIndex: 0,
+    fadeIn: true,
+    intervalId: ""
   }
 
   componentDidMount = () => {
+    const intervalId = setInterval(this.cycleHero, 5000)
+    this.setState({ intervalId })
+  }
+
+  componentWillUnmount = () => {
+    clearInterval(this.state.intervalId)
   }
 
   renderHeroNav = () => {
@@ -36,21 +43,50 @@ export default class HeroContainer extends Component {
     return this.state.fadeIn ? "hero-fade-in" : "hero-fade-out"
   }
 
+  renderHero = () => {
+    const heroStyle = {
+      background: `url(${this.state.images[this.state.currentHeroIndex].url}) center`,
+    }
+
+    return (
+      <div className={this.renderHeroClass()} style={heroStyle}>
+        <h1>{this.state.images[this.state.currentHeroIndex].title}</h1>
+        <h3>{this.state.images[this.state.currentHeroIndex].content}</h3>
+      </div>
+    )
+  }
+
+  cycleHero = () => {
+    const heroCount = this.state.images.length
+
+    this.setState({ fadeIn: false }, () => {
+      setTimeout(() => {
+        if(this.state.currentHeroIndex < heroCount - 1) {
+          this.setState({ currentHeroIndex: this.state.currentHeroIndex + 1}, () => {
+            this.renderHero(this.state.currentHeroIndex)
+            this.setState({ fadeIn: true })
+          })
+        } else {
+          this.setState({ currentHeroIndex: 0 }, () => {
+            this.renderHero(this.state.currentHeroIndex)
+            this.setState({ fadeIn: true })
+          })
+        }
+       }, 1000)
+    })
+
+    
+  }
+
   heroChange = () => {
     this.setState({ fadeIn: !this.state.fadeIn })
   }
 
   render() {
-    const heroStyle = {
-      background: `url(${this.state.images[0].url}) center`,
-    }
-
     return (
       <React.Fragment>
         <div id="hero-wrap">
-          <div className={this.renderHeroClass()} style={heroStyle}>
-            <h1>Some text or something</h1>
-          </div>
+          {this.renderHero()}
         </div>
         <div id="hero-nav">
           {this.renderHeroNav()}
