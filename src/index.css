@@ -93,3 +93,9 @@ code {
     background: #eee;
     margin: 0 0 0 30px;
   }
+
+#footer-wrap {
+  background: #ddd;
+  clear: both;
+  height: 50px;
+}
