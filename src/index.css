@@ -140,7 +140,7 @@ code {
 }
 
   #hero-nav .hero-item {
-    color: #ddd;
+    color: #f0f0f0;
     cursor: pointer;
     display: inline-block;
     font-size: 0.9em;
@@ -149,7 +149,7 @@ code {
   }
 
   #hero-nav .hero-item.selected {
-    color: #ccc;
+    color: #e1e1e1;
   }
 
 #body-wrap {
