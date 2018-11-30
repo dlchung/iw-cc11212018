@@ -4,30 +4,47 @@ export default class BodyContainer extends Component {
   state = {
     posts: [
       {
+        id: 1,
         title: "Bureaux exquisite delightful carefully curated soft power.",
         author: "LOREM IPSUM",
         date: "FEBRUARY 10, 2017",
         imgUrl: "/img/content_1.jpg" 
       },
       {
+        id: 2,
         title: "Esse airport veniam ryokan soft power.",
         author: "LOREM IPSUM",
         date: "JANUARY 21 2017",
         imgUrl: "/img/content_1.jpg" 
       },
       {
+        id: 3,
         title: "Sharp bureaux sleepy K-pop carefully curated.",
         author: "LOREM IPSUM",
         date: "FEBRUARY 2 2017",
         imgUrl: "/img/content_1.jpg" 
-      }
+      },
+      {
+        id: 4,
+        title: "Bureaux exquisite delightful carefully curated soft power.",
+        author: "LOREM IPSUM",
+        date: "FEBRUARY 10, 2017",
+        imgUrl: "/img/content_1.jpg" 
+      },
+      {
+        id: 5,
+        title: "Esse airport veniam ryokan soft power.",
+        author: "LOREM IPSUM",
+        date: "JANUARY 21 2017",
+        imgUrl: "/img/content_1.jpg" 
+      },
     ]
   }
 
   renderPosts = () => {
     return this.state.posts.map(post => {
       return (
-        <div className="card-wrap">
+        <div className="card-wrap" key={post.id}>
           <img src={post.imgUrl} className="featured-img" />
           <p className="date">{post.date}</p>
           <h1 className="title">{post.title}</h1>
@@ -41,17 +58,7 @@ export default class BodyContainer extends Component {
     return (
       <React.Fragment>
         <div id="body-wrap">
-          <div className="col">
-            {this.renderPosts()}
-          </div>
-          <div className="col"></div>
-          <div className="col">
-            {this.renderPosts()}
-          </div>
-          <div className="col"></div>
-          <div className="col">
-            {this.renderPosts()}
-          </div>
+          {this.renderPosts()}
         </div>
       </React.Fragment>
     )

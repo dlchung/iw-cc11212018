@@ -103,25 +103,25 @@ code {
 #body-wrap {
   background: #efefef;
   display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 348px auto 348px auto 348px;
-  margin: 0 auto;
+  grid-gap: 50px;
+  /* grid-template-columns: 348px 348px 348px; */
+  /* grid-template-columns: auto auto auto; */
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-template: repeat(3, 1fr) / repeat(3, 1fr); */
+  margin: 50px auto 0 auto;
   max-width: 1162px;
   padding: 0;
 }
 
-  #body-wrap .col {
-    background: #eee;
-  }
-
 .card-wrap {
-  background: green;
-  min-height: 100px;
-  max-width: 348px;
+  /* background: green; */
+  /* max-width: 348px; */
 }
 
   .card-wrap img.featured-img {
-    max-width: 348px;
+    height: auto;
+    object-fit: cover;
+    width: 100%;
   }
 
   .card-wrap h1.title {}
