@@ -103,8 +103,8 @@ code {
 #body-wrap {
   background: #efefef;
   display: grid;
-  grid-gap: 10px;
-  grid-template-columns: auto auto auto;
+  grid-gap: 20px;
+  grid-template-columns: 348px auto 348px auto 348px;
   margin: 0 auto;
   max-width: 1162px;
   padding: 0;
@@ -113,6 +113,22 @@ code {
   #body-wrap .col {
     background: #eee;
   }
+
+.card-wrap {
+  background: green;
+  min-height: 100px;
+  max-width: 348px;
+}
+
+  .card-wrap img.featured-img {
+    max-width: 348px;
+  }
+
+  .card-wrap h1.title {}
+
+  .card-wrap p.date {}
+
+  .card-wrap p.author {}
 
 #footer-wrap {
   background: #ddd;
