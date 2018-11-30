@@ -41,7 +41,7 @@ export default class HeroContainer extends Component {
 
   renderHeroNav = () => {
     return this.state.images.map((hero, index) => {
-      return (<li className="hero-item" key={hero.url}>&#9679; {index}</li>)
+      return (<li className={this.state.currentHeroIndex === index ? "hero-item selected" : "hero-item"} key={hero.url}>&#9679;</li>)
     })
   }
 
