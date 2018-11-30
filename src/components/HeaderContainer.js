@@ -8,10 +8,14 @@ export default class HeaderWrap extends Component {
     return (
       <React.Fragment>
         <div id="header-wrap">
-          <div id="header-content">
-            <Logo />
-            <Nav />
-            <HeaderInfo />
+          <div id="header-bg">
+            <div id="header-content">
+              <div id="header-grid">
+                <Logo />
+                <HeaderInfo />
+                <Nav />
+              </div>
+            </div>
           </div>
         </div>
       </React.Fragment>
