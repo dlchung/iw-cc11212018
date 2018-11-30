@@ -1,10 +1,10 @@
 @font-face {
-  font-family: "ACaslonPro-Regular";
+  font-family: "ACaslonPro";
   src: url("/fonts/ACaslonPro-Regular.otf") format("otf")
 }
 
 @font-face {
-  font-family: "Springville-Regular3";
+  font-family: "Springville";
   src: url("/fonts/Springville-Regular3.otf") format("otf")
 }
 
@@ -71,14 +71,42 @@ code {
   }
 
 #hero-wrap {
-  background: #ddd;
+  /* background: #ddd; */
+  box-sizing: border-box;
   color: #fff;
   height: 580px;
   margin: 0 auto;
   max-width: 1440px;
   overflow: hidden;
+  padding: 0;
   z-index: 0;
 }
+
+  #hero-wrap .hero-title {
+    /* background: green; */
+    font-family: "Springville";
+    font-size: 3em;
+    font-weight: normal;
+    margin: 0;
+    padding: 270px 0 0 50px;
+  }
+
+  #hero-wrap .hero-subtitle {
+    /* background: orange; */
+    font-family: "ACaslonPro";
+    font-size: 2em;
+    font-weight: normal;
+    margin: 0;
+    padding: 15px 0 0 50px;
+  }
+
+  #hero-wrap .hero-content {
+    /* background: purple; */
+    font-family: "ACaslonPro";
+    font-weight: normal;
+    margin: 0;
+    padding: 15px 0 0 50px;
+  }
 
 .hero-fade-in, .hero-fade-out {
   height: 100%;
@@ -145,7 +173,7 @@ code {
 
   .card-wrap h1.title {
     color: #131313;
-    font-family: "Springville-Regular3";
+    font-family: "Springville";
     font-size: 3em;
     font-weight: normal;
     margin: 20px 0 0 0;
@@ -161,7 +189,7 @@ code {
 
   .card-wrap p.author {
     color: #131313;
-    font-family: "ACaslonPro-Regular";
+    font-family: "ACaslonPro";
     font-size: 0.8em;
     margin: 20px 0 0 0;
     padding: 0;

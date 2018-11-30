@@ -5,17 +5,20 @@ export default class HeroContainer extends Component {
     images: [
       {
         url: '/img/hero_1.jpg',
-        title: 'Hero Image 1',
-        content: 'Hero Content'
+        title: 'Screening: DVF Secret Agent Part 2',
+        date: 'October 15, 2017',
+        content: 'Join us for a private screening of DVF Secret Agent Part 2 with our special guest, director Peter Lindberg.'
       },
       {
         url: '/img/hero_2.jpg',
         title: 'Hero Image 2',
+        date: 'November 5, 2017',
         content: 'Hero Content'
       },
       {
         url: '/img/hero_3.jpg',
         title: 'Hero Image 3',
+        date: 'May 25, 2017',
         content: 'Hero Content'
       }
     ],
@@ -37,8 +40,8 @@ export default class HeroContainer extends Component {
   }
 
   renderHeroNav = () => {
-    return this.state.images.map(hero => {
-      return (<li className="hero-item" key={hero.url}>&#9679;</li>)
+    return this.state.images.map((hero, index) => {
+      return (<li className="hero-item" key={hero.url}>&#9679; {index}</li>)
     })
   }
 
@@ -55,8 +58,9 @@ export default class HeroContainer extends Component {
 
     return (
       <div className={this.renderHeroClass()} style={heroStyle}>
-        <h1>{this.state.images[index].title}</h1>
-        <h3>{this.state.images[index].content}</h3>
+        <h1 className="hero-title">{this.state.images[index].title}</h1>
+        <h2 className="hero-subtitle">{this.state.images[index].date}</h2>
+        <h3 className="hero-content">{this.state.images[index].content}</h3>
       </div>
     )
   }
