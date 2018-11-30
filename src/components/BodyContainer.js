@@ -15,21 +15,21 @@ export default class BodyContainer extends Component {
         title: "Esse airport veniam ryokan soft power.",
         author: "LOREM IPSUM",
         date: "JANUARY 21 2017",
-        imgUrl: "/img/content_1.jpg" 
+        imgUrl: "/img/content_2.jpg" 
       },
       {
         id: 3,
         title: "Sharp bureaux sleepy K-pop carefully curated.",
         author: "LOREM IPSUM",
         date: "FEBRUARY 2 2017",
-        imgUrl: "/img/content_1.jpg" 
+        imgUrl: "/img/content_3.jpg" 
       },
       {
         id: 4,
         title: "Bureaux exquisite delightful carefully curated soft power.",
         author: "LOREM IPSUM",
         date: "FEBRUARY 10, 2017",
-        imgUrl: "/img/content_1.jpg" 
+        imgUrl: "/img/content_2.jpg" 
       },
       {
         id: 5,
@@ -48,7 +48,7 @@ export default class BodyContainer extends Component {
           <img src={post.imgUrl} className="featured-img" />
           <p className="date">{post.date}</p>
           <h1 className="title">{post.title}</h1>
-          <p className="author">{post.author}</p>
+          <p className="author">Presented by <a href="#">{post.author}</a></p>
         </div>
       )
     })

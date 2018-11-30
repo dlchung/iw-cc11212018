@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "ACaslonPro-Regular";
+  src: url("/fonts/ACaslonPro-Regular.otf") format("otf")
+}
+
+@font-face {
+  font-family: "Springville-Regular3";
+  src: url("/fonts/Springville-Regular3.otf") format("otf")
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -124,11 +134,32 @@ code {
     width: 100%;
   }
 
-  .card-wrap h1.title {}
+  .card-wrap h1.title {
+    color: #131313;
+    font-family: "Springville-Regular3";
+    font-size: 3em;
+    font-weight: normal;
+    margin: 20px 0 0 0;
+    padding: 0;
+  }
 
-  .card-wrap p.date {}
+  .card-wrap p.date {
+    color: #767676;
+    font-size: 0.7em;
+    margin: 50px 0 0 0;
+    padding: 0;
+  }
 
-  .card-wrap p.author {}
+  .card-wrap p.author {
+    color: #131313;
+    font-family: "ACaslonPro-Regular";
+    font-size: 0.8em;
+    margin: 20px 0 0 0;
+    padding: 0;
+  }
+
+    .card-wrap p.author a,
+    .card-wrap p.author a:hover { color: #131313; }
 
 #footer-wrap {
   background: #ddd;
