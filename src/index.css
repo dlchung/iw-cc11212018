@@ -154,13 +154,19 @@ code {
 
 #body-wrap {
   background: #efefef;
-  display: grid;
-  grid-gap: 50px;
-  grid-template-columns: repeat(3, 1fr);
+  /* display: grid; */
+  /* grid-gap: 50px; */
+  /* grid-template-columns: repeat(3, 1fr); */
+  /* grid-template-columns: 1fr 1fr 1fr; */
   margin: 50px auto 0 auto;
   max-width: 1162px;
   padding: 0;
 }
+
+  #body-wrap .col {
+    background: red;
+    height: 100px;
+  }
 
 .card-wrap {
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
 export default class BodyContainer extends Component {
   state = {
@@ -14,28 +15,42 @@ export default class BodyContainer extends Component {
         id: 2,
         title: "Esse airport veniam ryokan soft power.",
         author: "LOREM IPSUM",
-        date: "JANUARY 21 2017",
+        date: "MARCH 21 2017",
         imgUrl: "/img/content_2.jpg" 
       },
       {
         id: 3,
         title: "Sharp bureaux sleepy K-pop carefully curated.",
         author: "LOREM IPSUM",
-        date: "FEBRUARY 2 2017",
+        date: "APRIL 2 2017",
         imgUrl: "/img/content_3.jpg" 
       },
       {
         id: 4,
         title: "Bureaux exquisite delightful carefully curated soft power.",
         author: "LOREM IPSUM",
-        date: "FEBRUARY 10, 2017",
+        date: "MAY 10, 2017",
         imgUrl: "/img/content_2.jpg" 
       },
       {
         id: 5,
         title: "Esse airport veniam ryokan soft power.",
         author: "LOREM IPSUM",
-        date: "JANUARY 21 2017",
+        date: "JUNE 21 2017",
+        imgUrl: "/img/content_1.jpg" 
+      },
+      {
+        id: 3,
+        title: "Sharp bureaux sleepy K-pop carefully curated.",
+        author: "LOREM IPSUM",
+        date: "JULY 2 2017",
+        imgUrl: "/img/content_3.jpg" 
+      },
+      {
+        id: 5,
+        title: "Esse airport veniam ryokan soft power.",
+        author: "LOREM IPSUM",
+        date: "AUGUST 21 2017",
         imgUrl: "/img/content_1.jpg" 
       },
     ]
@@ -58,7 +73,11 @@ export default class BodyContainer extends Component {
     return (
       <React.Fragment>
         <div id="body-wrap">
-          {this.renderPosts()}
+          <ResponsiveMasonry>
+            <Masonry gutter="25px">
+              {this.renderPosts()}
+            </Masonry>
+          </ResponsiveMasonry>
         </div>
       </React.Fragment>
     )
