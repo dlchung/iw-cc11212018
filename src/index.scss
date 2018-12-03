@@ -1,8 +1,10 @@
-$springville: "Springville";
-$caslon: "ACaslonPro";
+$font-1: "Springville";
+$font-2: "ACaslonPro";
 
-$header-height: 120px;
-$header-height-sm: 50px;
+$header-h: 120px;
+$header-h-sm: 50px;
+$default-w: 1162px;
+$hero-w: 1440px;
 
 @mixin for-phone-only {
   @media (max-width: 599px) { @content; }
@@ -29,12 +31,12 @@ $header-height-sm: 50px;
 }
 
 @font-face {
-  font-family: $caslon;
+  font-family: $font-2;
   src: url("/fonts/ACaslonPro-Regular.otf") format("otf")
 }
 
 @font-face {
-  font-family: $springville;
+  font-family: $font-1;
   src: url("/fonts/Springville-Regular3.otf") format("otf")
 }
 
@@ -55,20 +57,20 @@ code {
 
 #header-wrap {
   @include for-phone-only {
-    height: $header-height-sm;
+    height: $header-h-sm;
   }
 
   background: transparent;
-  height: $header-height;
+  height: $header-h;
 }
 
   #header-wrap #header-bg {
     @include for-phone-only {
-      height: $header-height-sm;
+      height: $header-h-sm;
     }
 
     background: #fff;
-    height: $header-height;
+    height: $header-h;
     margin: 0 auto;
     position: fixed;
     width: 100%;
@@ -77,24 +79,24 @@ code {
 
   #header-wrap #header-bg #header-content {
     @include for-phone-only {
-      height: $header-height-sm;
+      height: $header-h-sm;
     }
 
-    height: $header-height;
+    height: $header-h;
     margin: 0 auto;
-    max-width: 1162px;
+    max-width: $default-w;
   }
   
   #header-wrap #header-bg #header-content #header-grid {
     @include for-phone-only {
-      height: $header-height-sm;
+      height: $header-h-sm;
     }
 
     align-items: center;
     display: grid;
     grid-gap: 20px;
     grid-template-columns: 1fr auto auto;
-    height: $header-height;
+    height: $header-h;
   }
 
 #logo-wrap {
@@ -125,7 +127,7 @@ code {
   color: #fff;
   height: 580px;
   margin: 0 auto;
-  max-width: 1440px;
+  max-width: $hero-w;
   overflow: hidden;
   padding: 0;
   position: relative;
@@ -156,7 +158,7 @@ code {
       font-size: 2.2em;
     }
 
-    font-family: $springville;
+    font-family: $font-1;
     font-size: 3em;
     font-weight: normal;
     margin: 0;
@@ -168,7 +170,7 @@ code {
       font-size: 1.6em;
     }
 
-    font-family: $caslon;
+    font-family: $font-2;
     font-size: 2em;
     font-weight: normal;
     margin: 0;
@@ -180,7 +182,7 @@ code {
       font-size: 1em;
     }
 
-    font-family: $caslon;
+    font-family: $font-2;
     font-weight: normal;
     margin: 0;
     padding: 15px 0 0 50px;
@@ -214,7 +216,7 @@ code {
 #hero-nav {
   text-align: center;
   margin: 0 auto;
-  max-width: 1440px;
+  max-width: $hero-w;
 }
 
   #hero-nav .hero-item {
@@ -233,7 +235,7 @@ code {
 #body-wrap {
   // background: #efefef;
   margin: 50px auto 0 auto;
-  max-width: 1162px;
+  max-width: $default-w + 50px;
   padding: 0;
 }
 
@@ -265,7 +267,7 @@ code {
     }
 
     color: #131313;
-    font-family: $springville;
+    font-family: $font-1;
     font-size: 3em;
     font-weight: normal;
     margin: 20px 0 0 0;
@@ -281,7 +283,7 @@ code {
 
   .card-wrap p.author {
     color: #131313;
-    font-family: $caslon;
+    font-family: $font-2;
     font-size: 0.8em;
     margin: 20px 0 0 0;
     padding: 0;
