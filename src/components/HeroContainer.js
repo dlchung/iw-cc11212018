@@ -27,13 +27,11 @@ export default class HeroContainer extends Component {
     fadeIn: true,
     intervalId: "",
     animationInterval: 5000, // milliseconds
-    animationDuration: 1000 // milliseconds
+    animationDuration: 750 // milliseconds
   }
 
   componentDidMount = () => {
-    const existDuration = (this.state.animationDuration * 2) + this.state.animationInterval
-    const intervalId = setInterval(this.rotateHero, existDuration)
-    this.setState({ intervalId })
+    this.startCarousel()
   }
 
   componentWillUnmount = () => {
@@ -59,7 +57,6 @@ export default class HeroContainer extends Component {
 
     return (
       <div className={this.renderHeroClass()} style={heroStyle}>
-        {/* <p style={{color: "red"}}>Hello</p> */}
         <h1 className="hero-title">{this.state.images[index].title}</h1>
         <h2 className="hero-subtitle">{this.state.images[index].date}</h2>
         <h3 className="hero-content">{this.state.images[index].content}</h3>
@@ -67,19 +64,31 @@ export default class HeroContainer extends Component {
     )
   }
 
-  rotateHero = () => {
+  rotateHero = (index = null) => {
     const heroCount = this.state.images.length
+    let newIndex
+    index ? newIndex = index : newIndex = this.state.currentHeroIndex + 1
+
+    // console.log("New index: ", newIndex)
 
     this.setState({ fadeIn: false }, () => { // fade out current image
       setTimeout(() => { // wait for animation to finish
-        if(this.state.currentHeroIndex < heroCount - 1) {
-          this.setState({ currentHeroIndex: this.state.currentHeroIndex + 1}, () => { // set new hero image
-            this.renderHero(this.state.currentHeroIndex) // render new hero image
+        if(newIndex <= heroCount - 1 && newIndex >= 0) {
+          console.log("1")
+          this.setState({ currentHeroIndex: newIndex}, () => { // set new hero image
+            this.renderHero() // render new hero image
             this.setState({ fadeIn: true }) // fade in new image
           })
+        } else if(newIndex < 0) {
+          console.log("2")
+          this.setState({ currentHeroIndex: heroCount - 1}, () => {
+            this.renderHero()
+            this.setState({ fadeIn: true })
+          })
         } else { // if last hero, go back to first hero
+          console.log("3")
           this.setState({ currentHeroIndex: 0 }, () => {
-            this.renderHero(this.state.currentHeroIndex)
+            this.renderHero()
             this.setState({ fadeIn: true })
           })
         }
@@ -87,14 +96,27 @@ export default class HeroContainer extends Component {
     }) 
   }
 
+  startCarousel = () => {
+    // console.log("Current hero index: ", this.state.currentHeroIndex)
+    const existDuration = (this.state.animationDuration * 2) + this.state.animationInterval
+    const intervalId = setInterval(this.rotateHero, existDuration)
+    this.setState({ intervalId })
+  }
+
+  resetCarousel = () => {
+    clearInterval(this.state.intervalId)
+    this.startCarousel()
+  }
+
   onSwipeLeft = (event) => {
-    // console.log("Swiped left...", event)
-    this.setState({ currentHeroIndex: this.state.currentHeroIndex - 1 })
+    // console.log(this.state.currentHeroIndex)
+    this.rotateHero(this.state.currentHeroIndex - 1)
+    this.resetCarousel()
   }
 
   onSwipeRight = (event) => {
-    // console.log("Swiped right...", event)
-    this.setState({ currentHeroIndex: this.state.currentHeroIndex + 1 })
+    this.rotateHero(this.state.currentHeroIndex + 1)
+    this.resetCarousel()
   }
 
   render() {
