@@ -1,3 +1,9 @@
+$springville: "Springville";
+$caslon: "ACaslonPro";
+
+$header-height: 120px;
+$header-height-sm: 50px;
+
 @mixin for-phone-only {
   @media (max-width: 599px) { @content; }
 }
@@ -49,20 +55,20 @@ code {
 
 #header-wrap {
   @include for-phone-only {
-    height: 50px;
+    height: $header-height-sm;
   }
 
   background: transparent;
-  height: 120px;
+  height: $header-height;
 }
 
   #header-wrap #header-bg {
     @include for-phone-only {
-      height: 50px;
+      height: $header-height-sm;
     }
 
     background: #fff;
-    height: 120px;
+    height: $header-height;
     margin: 0 auto;
     position: fixed;
     width: 100%;
@@ -71,24 +77,24 @@ code {
 
   #header-wrap #header-bg #header-content {
     @include for-phone-only {
-      height: 50px;
+      height: $header-height-sm;
     }
 
-    height: 120px;
+    height: $header-height;
     margin: 0 auto;
     max-width: 1162px;
   }
   
   #header-wrap #header-bg #header-content #header-grid {
     @include for-phone-only {
-      height: 50px;
+      height: $header-height-sm;
     }
 
     align-items: center;
     display: grid;
     grid-gap: 20px;
     grid-template-columns: 1fr auto auto;
-    height: 120px;
+    height: $header-height;
   }
 
 #logo-wrap {
@@ -108,21 +114,46 @@ code {
     font-size: 0.8em;
   }
 
-#hero-wrap {  
+#hero-wrap {
+  @include for-hero-ratio {
+    height: 0;
+    padding-top: 75%;
+    width: 100%;
+  }
+  
   box-sizing: border-box;
   color: #fff;
   height: 580px;
-  // height: 773px / 580px * 100%;
   margin: 0 auto;
   max-width: 1440px;
   overflow: hidden;
   padding: 0;
+  position: relative;
   z-index: 0;
 }
 
+  #hero-wrap #hero-ratio {
+    @include for-hero-ratio {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+    
+    height: 580px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
   #hero-wrap .hero-title {
+    @include for-hero-ratio {
+      padding-top: 25%;
+    }
+
     /* background: green; */
-    font-family: "Springville";
+    font-family: $springville;
     font-size: 3em;
     font-weight: normal;
     margin: 0;
@@ -131,7 +162,7 @@ code {
 
   #hero-wrap .hero-subtitle {
     /* background: orange; */
-    font-family: "ACaslonPro";
+    font-family: $caslon;
     font-size: 2em;
     font-weight: normal;
     margin: 0;
@@ -140,7 +171,7 @@ code {
 
   #hero-wrap .hero-content {
     /* background: purple; */
-    font-family: "ACaslonPro";
+    font-family: $caslon;
     font-weight: normal;
     margin: 0;
     padding: 15px 0 0 50px;
@@ -213,7 +244,7 @@ code {
 
   .card-wrap h1.title {
     color: #131313;
-    font-family: "Springville";
+    font-family: $springville;
     font-size: 3em;
     font-weight: normal;
     margin: 20px 0 0 0;
@@ -229,7 +260,7 @@ code {
 
   .card-wrap p.author {
     color: #131313;
-    font-family: "ACaslonPro";
+    font-family: $caslon;
     font-size: 0.8em;
     margin: 20px 0 0 0;
     padding: 0;

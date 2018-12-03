@@ -58,6 +58,7 @@ export default class HeroContainer extends Component {
 
     return (
       <div className={this.renderHeroClass()} style={heroStyle}>
+        {/* <p style={{color: "red"}}>Hello</p> */}
         <h1 className="hero-title">{this.state.images[index].title}</h1>
         <h2 className="hero-subtitle">{this.state.images[index].date}</h2>
         <h3 className="hero-content">{this.state.images[index].content}</h3>
@@ -89,7 +90,7 @@ export default class HeroContainer extends Component {
     return (
       <React.Fragment>
         <div id="hero-wrap">
-          <div className="content">
+          <div id="hero-ratio">
             {this.renderHero()}
           </div>
         </div>
