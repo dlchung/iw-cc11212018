@@ -60,10 +60,10 @@ export default class BodyContainer extends Component {
     return this.state.posts.map(post => {
       return (
         <div className="card-wrap" key={post.id}>
-          <img src={post.imgUrl} className="featured-img" />
+          <img src={post.imgUrl} className="featured-img" alt="Post feature" />
           <p className="date">{post.date}</p>
           <h1 className="title">{post.title}</h1>
-          <p className="author">Presented by <a href="#">{post.author}</a></p>
+          <p className="author">Presented by <a href="/">{post.author}</a></p>
         </div>
       )
     })

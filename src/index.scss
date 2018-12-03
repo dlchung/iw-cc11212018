@@ -289,8 +289,8 @@ code {
     padding: 0;
   }
 
-    .card-wrap p.author a,
-    .card-wrap p.author a:hover { color: #131313; }
+    .card-wrap p.author a { color: #131313; }
+    .card-wrap p.author a:hover { color: #666; }
 
 #footer-wrap {
   margin: 50px 0;
@@ -302,6 +302,5 @@ code {
     text-align: center;
   }
 
-  #footer-wrap a {
-    color: #767676;
-  }
+  #footer-wrap a { color: #767676; }
+  #footer-wrap a:hover { color: #aaa; }
