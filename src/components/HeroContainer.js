@@ -89,7 +89,9 @@ export default class HeroContainer extends Component {
     return (
       <React.Fragment>
         <div id="hero-wrap">
-          {this.renderHero()}
+          <div className="content">
+            {this.renderHero()}
+          </div>
         </div>
         <div id="hero-nav">
           {this.renderHeroNav()}

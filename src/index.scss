@@ -1,3 +1,27 @@
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+
+@mixin for-hero-ratio {
+  @media (max-width: 773px) { @content; }
+}
+
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+
 @font-face {
   font-family: "ACaslonPro";
   src: url("/fonts/ACaslonPro-Regular.otf") format("otf")
@@ -24,11 +48,19 @@ code {
 }
 
 #header-wrap {
+  @include for-phone-only {
+    height: 50px;
+  }
+
   background: transparent;
   height: 120px;
 }
 
   #header-wrap #header-bg {
+    @include for-phone-only {
+      height: 50px;
+    }
+
     background: #fff;
     height: 120px;
     margin: 0 auto;
@@ -38,12 +70,20 @@ code {
   }
 
   #header-wrap #header-bg #header-content {
+    @include for-phone-only {
+      height: 50px;
+    }
+
     height: 120px;
     margin: 0 auto;
     max-width: 1162px;
   }
   
   #header-wrap #header-bg #header-content #header-grid {
+    @include for-phone-only {
+      height: 50px;
+    }
+
     align-items: center;
     display: grid;
     grid-gap: 20px;
@@ -58,11 +98,9 @@ code {
   }
 
 #nav-wrap {
-  /* background: #ccc; */
 }
 
 #header-info-wrap {
-  /* background: #ddd; */
 }
 
   #header-info-wrap p {
@@ -70,11 +108,11 @@ code {
     font-size: 0.8em;
   }
 
-#hero-wrap {
-  /* background: #ddd; */
+#hero-wrap {  
   box-sizing: border-box;
   color: #fff;
   height: 580px;
+  // height: 773px / 580px * 100%;
   margin: 0 auto;
   max-width: 1440px;
   overflow: hidden;
@@ -154,10 +192,6 @@ code {
 
 #body-wrap {
   background: #efefef;
-  /* display: grid; */
-  /* grid-gap: 50px; */
-  /* grid-template-columns: repeat(3, 1fr); */
-  /* grid-template-columns: 1fr 1fr 1fr; */
   margin: 50px auto 0 auto;
   max-width: 1162px;
   padding: 0;
