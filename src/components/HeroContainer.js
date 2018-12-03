@@ -67,26 +67,24 @@ export default class HeroContainer extends Component {
   rotateHero = (index = null) => {
     const heroCount = this.state.images.length
     let newIndex
-    index ? newIndex = index : newIndex = this.state.currentHeroIndex + 1
-
-    // console.log("New index: ", newIndex)
+    index !== null ? newIndex = index : newIndex = this.state.currentHeroIndex + 1
 
     this.setState({ fadeIn: false }, () => { // fade out current image
       setTimeout(() => { // wait for animation to finish
         if(newIndex <= heroCount - 1 && newIndex >= 0) {
-          console.log("1")
+          // console.log("cond 1")
           this.setState({ currentHeroIndex: newIndex}, () => { // set new hero image
             this.renderHero() // render new hero image
             this.setState({ fadeIn: true }) // fade in new image
           })
         } else if(newIndex < 0) {
-          console.log("2")
+          // console.log("cond 2")
           this.setState({ currentHeroIndex: heroCount - 1}, () => {
             this.renderHero()
             this.setState({ fadeIn: true })
           })
         } else { // if last hero, go back to first hero
-          console.log("3")
+          // console.log("cond 3")
           this.setState({ currentHeroIndex: 0 }, () => {
             this.renderHero()
             this.setState({ fadeIn: true })
@@ -109,7 +107,7 @@ export default class HeroContainer extends Component {
   }
 
   onSwipeLeft = (event) => {
-    // console.log(this.state.currentHeroIndex)
+    console.log(this.state.currentHeroIndex)
     this.rotateHero(this.state.currentHeroIndex - 1)
     this.resetCarousel()
   }
