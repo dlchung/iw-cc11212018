@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Swipe from 'react-easy-swipe'
 
 export default class HeroContainer extends Component {
   state = {
@@ -86,14 +87,30 @@ export default class HeroContainer extends Component {
     }) 
   }
 
+  onSwipeLeft = (event) => {
+    // console.log("Swiped left...", event)
+    this.setState({ currentHeroIndex: this.state.currentHeroIndex - 1 })
+  }
+
+  onSwipeRight = (event) => {
+    // console.log("Swiped right...", event)
+    this.setState({ currentHeroIndex: this.state.currentHeroIndex + 1 })
+  }
+
   render() {
     return (
       <React.Fragment>
-        <div id="hero-wrap">
-          <div id="hero-ratio">
-            {this.renderHero()}
+        <Swipe
+          onSwipeLeft={this.onSwipeLeft}
+          onSwipeRight={this.onSwipeRight}
+        >
+          <div id="hero-wrap">
+            <div id="hero-ratio">
+              {this.renderHero()}
+            </div>
           </div>
-        </div>
+        </Swipe>
+
         <div id="hero-nav">
           {this.renderHeroNav()}
         </div>
