@@ -29,12 +29,12 @@ $header-height-sm: 50px;
 }
 
 @font-face {
-  font-family: "ACaslonPro";
+  font-family: $caslon;
   src: url("/fonts/ACaslonPro-Regular.otf") format("otf")
 }
 
 @font-face {
-  font-family: "Springville";
+  font-family: $springville;
   src: url("/fonts/Springville-Regular3.otf") format("otf")
 }
 
@@ -231,7 +231,7 @@ code {
   }
 
 #body-wrap {
-  background: #efefef;
+  // background: #efefef;
   margin: 50px auto 0 auto;
   max-width: 1162px;
   padding: 0;
@@ -291,7 +291,15 @@ code {
     .card-wrap p.author a:hover { color: #131313; }
 
 #footer-wrap {
-  background: #ddd;
-  clear: both;
-  height: 50px;
+  margin: 50px 0;
 }
+
+  #footer-wrap p {
+    font-size: 0.8em;
+    display: block;
+    text-align: center;
+  }
+
+  #footer-wrap a {
+    color: #767676;
+  }
