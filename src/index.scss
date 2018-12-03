@@ -138,7 +138,6 @@ code {
       top: 0;
       left: 0;
       height: 100%;
-      width: 100%;
     }
     
     height: 580px;
@@ -149,19 +148,26 @@ code {
 
   #hero-wrap .hero-title {
     @include for-hero-ratio {
-      padding-top: 25%;
+      // padding-top: 25%;
     }
 
-    /* background: green; */
+    @include for-phone-only() {
+      padding-top: 10%;
+      font-size: 2.2em;
+    }
+
     font-family: $springville;
     font-size: 3em;
     font-weight: normal;
     margin: 0;
-    padding: 270px 0 0 50px;
+    padding: 20% 0 0 50px;
   }
 
   #hero-wrap .hero-subtitle {
-    /* background: orange; */
+    @include for-phone-only() {
+      font-size: 1.6em;
+    }
+
     font-family: $caslon;
     font-size: 2em;
     font-weight: normal;
@@ -170,7 +176,10 @@ code {
   }
 
   #hero-wrap .hero-content {
-    /* background: purple; */
+    @include for-phone-only() {
+      font-size: 1em;
+    }
+
     font-family: $caslon;
     font-weight: normal;
     margin: 0;
@@ -243,6 +252,18 @@ code {
   }
 
   .card-wrap h1.title {
+    @include for-tablet-landscape-up {
+      font-size: 3em;
+    }
+
+    @include for-tablet-portrait-up {
+      font-size: 2.6em;
+    }
+
+    @include for-phone-only {
+      font-size: 2.2em;
+    }
+
     color: #131313;
     font-family: $springville;
     font-size: 3em;
