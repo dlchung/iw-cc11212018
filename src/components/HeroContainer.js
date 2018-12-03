@@ -40,7 +40,18 @@ export default class HeroContainer extends Component {
 
   renderHeroNav = () => {
     return this.state.images.map((hero, index) => {
-      return (<li className={this.state.currentHeroIndex === index ? "hero-item selected" : "hero-item"} key={hero.url}>&#9679;</li>)
+      return (
+        <li 
+          className={this.state.currentHeroIndex === index ? "hero-item selected" : "hero-item"} 
+          key={hero.url}
+          onClick={() => {
+            this.rotateHero(index)
+            this.resetCarousel()
+          }}
+        >
+          &#9679;
+        </li>
+      )
     })
   }
 
@@ -107,7 +118,7 @@ export default class HeroContainer extends Component {
   }
 
   onSwipeLeft = (event) => {
-    console.log(this.state.currentHeroIndex)
+    // console.log(this.state.currentHeroIndex)
     this.rotateHero(this.state.currentHeroIndex - 1)
     this.resetCarousel()
   }
